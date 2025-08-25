@@ -39,10 +39,10 @@ public class AppStreaming {
                     Temporada temp1 = new Temporada(1);
 
                         //episodio 01
-                    System.out.println("QUAL O TÍTULO DO EPISÓDIO?");
+                    System.out.println("QUAL O TÍTULO DO EPISÓDIO 01?");
                     String tituloEp = sc.nextLine();
 
-                    System.out.println("QUAL A DURAÇÃO DO EPISÓDIO?");
+                    System.out.println("QUAL A DURAÇÃO DO EPISÓDIO 01?");
                     long duracaoEp = sc.nextLong();
                     sc.nextLine();
 
@@ -51,10 +51,10 @@ public class AppStreaming {
                     temp1.adicionar(ep1);
 
                         //episodio 02
-                    System.out.println("QUAL O TÍTULO DO EPISÓDIO?");
+                    System.out.println("QUAL O TÍTULO DO EPISÓDIO 02?");
                     String tituloEp2 = sc.nextLine();
 
-                    System.out.println("QUAL A DURAÇÃO DO EPISÓDIO?");
+                    System.out.println("QUAL A DURAÇÃO DO EPISÓDIO 02?");
                     long duracaoEp2 = sc.nextLong();
                     sc.nextLine();
 
@@ -67,10 +67,10 @@ public class AppStreaming {
                     Temporada temp2 = new Temporada(2);
 
                         //episodio 01
-                    System.out.println("QUAL O TÍTULO DO EPISÓDIO?");
+                    System.out.println("QUAL O TÍTULO DO EPISÓDIO 01?");
                     String tituloEpisodio = sc.nextLine();
 
-                    System.out.println("QUAL A DURAÇÃO DO EPISÓDIO?");
+                    System.out.println("QUAL A DURAÇÃO DO EPISÓDIO 01?");
                     long duracaoEpisodio = sc.nextLong();
                     sc.nextLine();
 
@@ -79,10 +79,10 @@ public class AppStreaming {
                     temp1.adicionar(episodio1);
 
                         //episodio 02
-                    System.out.println("QUAL O TÍTULO DO EPISÓDIO?");
+                    System.out.println("QUAL O TÍTULO DO EPISÓDIO 02?");
                     String tituloEpisodio2 = sc.nextLine();
 
-                    System.out.println("QUAL A DURAÇÃO DO EPISÓDIO?");
+                    System.out.println("QUAL A DURAÇÃO DO EPISÓDIO 02?");
                     long duracaoEpisodio2 = sc.nextLong();
                     sc.nextLine();
 
@@ -99,6 +99,9 @@ public class AppStreaming {
                     break;
 
                 case 3:
+                    for (Midia m:midias){
+                        System.out.println(m.info());
+                    }
                 
 
                 case 4:
