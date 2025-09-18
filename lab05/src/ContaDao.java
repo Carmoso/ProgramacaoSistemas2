@@ -53,23 +53,38 @@ public class ContaDao implements IContaDao {
         pstmReadByNumber.setLong(1, id);
         ResultSet resultado = pstmReadByNumber.executeQuery();
         if (resultado.next()){
-            long n =resultado.getLong("nro_conta");
-            BigDecimal s = resultado.getBigDecimal("nro conta");
+            long n = resultado.getLong("nro_conta");
+            BigDecimal s = resultado.getBigDecimal("saldo");
             c = new Conta(n, s);
         }
         return c;
     }
 
     @Override
-    public boolean atualizar(Conta c) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
+    public boolean atualizar(Conta c) throws Exception {
+        Scanner sc= new Scanner(System.in);
+
+        long nro = sc.nextLong();
+        BigDecimal saldo = sc.nextBigDecimal();
+
+        pstmUpdate.setBigDecimal(1, saldo);
+        pstmUpdate.setLong(2, nro);
+
+        pstmUpdate.executeQuery();
+        
+        return false;
     }
 
     @Override
-    public boolean apagar(Conta c) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'apagar'");
+    public boolean apagar(Conta c) throws Exception {
+        Scanner sc = new Scanner(System.in);
+
+        long  nro = sc.nextLong();
+
+        pstmDelete.setLong(1, nro);
+        pstmDelete.executeQuery();
+
+        return false;
     }
     
 }
