@@ -28,7 +28,7 @@ public class ContaDao implements IContaDao {
         BigDecimal saldo = sc.nextBigDecimal();
         pstmCreate.setLong(1, nro);
         pstmCreate.setBigDecimal(2, saldo);
-        pstmCreate.executeQuery();
+        pstmCreate.executeUpdate();
         
         return false;
     }
@@ -70,7 +70,7 @@ public class ContaDao implements IContaDao {
         pstmUpdate.setBigDecimal(1, saldo);
         pstmUpdate.setLong(2, nro);
 
-        pstmUpdate.executeQuery();
+        pstmUpdate.executeUpdate();
         
         return false;
     }
@@ -82,7 +82,7 @@ public class ContaDao implements IContaDao {
         long  nro = sc.nextLong();
 
         pstmDelete.setLong(1, nro);
-        pstmDelete.executeQuery();
+        pstmDelete.executeUpdate();
 
         return false;
     }

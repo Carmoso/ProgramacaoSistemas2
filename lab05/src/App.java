@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class App {
             System.out.println("(3) Criar uma nova conta");
             System.out.println("(4) Alterar saldo de uma conta");
             System.out.println("(5) Apagar uma conta");
-            System.out.println("(6) Sair");
+            System.out.println("(0) Sair");
 
             System.out.println("Escolha uma opção: ");
 
@@ -26,11 +27,15 @@ public class App {
             switch(op) {
                 case "0":
                     sair = true;
-                    return;
+                    break;
+
                 case "1":
                     List<Conta> contas;
                     contas = dao.lerTodas();
                     System.out.println(contas);
+                    break;
+
+
                 case "2":
                     System.out.println("Digite o número da conta: ");
                     long nro = sc.nextLong();
@@ -38,11 +43,40 @@ public class App {
                     Conta c = dao.buscarPeloNumero(nro);
 
                     System.out.println(c);
+                    break;
+
+
                 case "3":
+                    System.out.println("Digite o número da conta: ");
+                    long nr = sc.nextLong();
+                    System.out.println("Digite o saldo: ");
+                    BigDecimal saldo = sc.nextBigDecimal();
+                    Conta conta = new Conta(nr, saldo);
+
+                    dao.criar(conta);
+
                     System.out.println("Criando uma conta");
+
+
+
+                    break;
+
+
                 case "4":
+                    System.out.println("Digite o número da conta existente: ");
+                    System.out.println("Alterar saldo");
+                    long n = sc.nextLong();
+                    System.out.println("Digite o novo saldo: ");
+                    BigDecimal s = sc.nextBigDecimal();
+
+                    Conta con = new Conta(n, s);
+                    dao.atualizar(con);
+                    break;
+
+
                 case "5":
-                case "6":
+                    System.out.println("Apagar conta");
+                    break;
 
             }
         }
