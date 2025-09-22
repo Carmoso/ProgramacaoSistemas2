@@ -8,8 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import static ps2.titular_app.ES.input;
 import static ps2.titular_app.ES.print;
 
-import java.util.Scanner;
-
 @SpringBootApplication
 public class TitularAppApplication implements CommandLineRunner {
 
@@ -32,18 +30,25 @@ public class TitularAppApplication implements CommandLineRunner {
 	public void lerTudo() {
 		Iterable<Titular> titulares = titularrepo.findAll();
 		for (Titular t : titulares) {
-			System.out.println(t);
+			print("Titular: " + t);
 		}
 	}
 
 	public void buscarPeloNum() {
 		Iterable<Titular> titulares = titularrepo.findAll();
-		Scanner sc = new Scanner(System.in);
-		long id = sc.nextLong();
+		Long id = Long.valueOf(input("Digite o ID:"));
 		for (Titular t : titulares) {
-			if (t.getId() = id) {
-				System.out.println(t);
-			}
+			if (!(t.getId() == id)) {
+			} else {
+                            ES.print("Titular"+ t);
+                    }
+		}
+
+	}
+	public void alterarDados() {
+		Iterable<Titular> titulares = titularrepo.findAll();
+		Long id = Long.valueOf(input("Digite o ID:"));
+		
 		}
 
 	}
@@ -70,10 +75,10 @@ public class TitularAppApplication implements CommandLineRunner {
 					lerTudo();
 					break;
 				case "3":
-					lerTudo();
+					criar();
 					break;
 				case "2":
-					lerTudo();
+					buscarPeloNum();
 					break;
 				case "1":
 					lerTudo();
